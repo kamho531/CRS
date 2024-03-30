@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+
+{% block content%}
+
+
+<center>
+    {% if searched %}
+        <h2>Your search result of "{{ searched }}"</h2>
+        <br/><br/>
+        {% for customerfn in customersfn %}
+            <a href="{% url 'updatecustomers' customerfn.id %}" style="font-family: Helvetica; font-size: x-large; color: blueviolet;">{{ customerfn }}</a><br/>
+        {% endfor %}
+        {% for customerln in customersln %}
+            <a href="{% url 'updatecustomers' customerln.id %}" style="font-family: Helvetica; font-size: x-large; color: blueviolet;">{{ customerln }}</a><br/>
+        {% endfor %}
+    {% else %}
+        <h2>Oops! You didn't type in a (first or last) name in the search box ...</h2>
+    {% endif %}
+    
+
+    <br/>
+
+    <br/><br/>
+
+
+</center>
+
+{% endblock %}
